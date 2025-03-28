@@ -1,0 +1,77 @@
+:root {
+  --primary-color: gray;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: var(--primary-color);
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  --border-radius: 8px;
+  --border-icon: 5px;
+  --icon-size: 2.5rem;
+
+  width: 20rem;
+  height: 30rem;
+  position: relative;
+
+  img {
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .icon {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: var(--icon-size);
+    aspect-ratio: 1;
+    background-color: var(--primary-color);
+    border-left: var(--border-icon) solid var(--primary-color);
+    border-bottom: var(--border-icon) solid var(--primary-color);
+    border-bottom-left-radius: calc(var(--border-radius) + var(--border-icon));
+  }
+
+  i {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-size: 1.3rem;
+    padding: 0.3rem;
+    display: grid;
+    place-items: center;
+    border-radius: var(--border-radius);
+  }
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-top-right-radius: var(--border-radius);
+    box-shadow: 3.5px -3.5px var(--primary-color);
+  }
+
+  &::after {
+    top: 0;
+    right: var(--icon-size);
+  }
+
+  &::before {
+    top: var(--icon-size);
+    right: 0;
+  }
+}
